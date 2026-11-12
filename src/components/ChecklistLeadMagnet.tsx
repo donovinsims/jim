@@ -39,7 +39,7 @@ export const ChecklistLeadMagnet: React.FC<ChecklistLeadMagnetProps> = ({ onOpen
           <div className="mt-4 flex flex-wrap items-center gap-3 no-print">
             <button
               onClick={handlePrint}
-              className="px-4 py-2 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs sm:text-sm font-semibold inline-flex items-center gap-2 cursor-pointer border border-stone-300 transition-colors"
+              className="px-4 py-3 min-h-[44px] rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs sm:text-sm font-semibold inline-flex items-center gap-2 cursor-pointer border border-stone-300 transition-colors"
             >
               <Printer className="w-4 h-4 text-stone-600" />
               <span>Print or Save as PDF</span>
@@ -122,7 +122,7 @@ export const ChecklistLeadMagnet: React.FC<ChecklistLeadMagnetProps> = ({ onOpen
                       placeholder="Enter your email for the guide..."
                       value={email}
                       onChange={e => setEmail(e.target.value)}
-                      className="px-4 py-3 rounded-lg bg-stone-900 border border-stone-700 text-white placeholder:text-stone-500 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 flex-1"
+                      className="px-4 py-3 rounded-lg bg-stone-900 border border-stone-700 text-white placeholder:text-stone-500 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 flex-1"
                     />
                     <button
                       type="submit"

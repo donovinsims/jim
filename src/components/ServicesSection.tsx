@@ -34,7 +34,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
         </div>
 
         {/* Functional Segmented Navigation Bar (Allowed in Constitution §1.A for Interactive Filters) */}
-        <div className="flex flex-wrap items-center gap-2 p-1.5 bg-stone-100 rounded-xl mb-10 border border-stone-200" role="tablist">
+        <div className="flex items-center gap-2 p-1.5 bg-stone-100 rounded-xl mb-8 border border-stone-200 overflow-x-auto no-scrollbar snap-x" role="tablist">
           {SERVICES.map(service => {
             const isActive = service.id === activeId;
             return (
@@ -43,7 +43,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 role="tab"
                 aria-selected={isActive}
                 onClick={() => setActiveId(service.id)}
-                className={`px-4 py-2.5 text-xs sm:text-sm font-semibold rounded-lg transition-all cursor-pointer whitespace-nowrap shrink-0 flex items-center gap-2 ${
+                className={`px-4 py-3 min-h-[44px] text-xs sm:text-sm font-semibold rounded-lg transition-all cursor-pointer whitespace-nowrap shrink-0 snap-start flex items-center gap-2 ${
                   isActive
                     ? 'bg-stone-900 text-white shadow-sm'
                     : 'text-stone-600 hover:text-stone-950 hover:bg-stone-200/60'
@@ -66,7 +66,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
             <div className="lg:col-span-7 space-y-6">
               
               {/* Unboxed Metadata Header */}
-              <div className="flex items-center gap-2 text-xs font-medium text-stone-500">
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-medium text-stone-500">
                 <span className="font-semibold text-stone-900">{activeService.title}</span>
                 <span aria-hidden="true">·</span>
                 <span>{activeService.status === 'VERIFIED' ? 'Verified Offering' : 'Standard Service'}</span>
@@ -122,10 +122,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
               </div>
 
               {/* Action row */}
-              <div className="pt-2 flex flex-wrap items-center gap-4">
+              <div className="pt-2 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
                 <button
                   onClick={onOpenBooking}
-                  className="px-6 py-3 text-sm font-semibold text-stone-950 bg-amber-500 hover:bg-amber-400 active:bg-amber-600 rounded-lg transition-colors shadow-sm inline-flex items-center gap-2 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+                  className="w-full sm:w-auto justify-center px-6 py-3 min-h-[48px] text-sm font-semibold text-stone-950 bg-amber-500 hover:bg-amber-400 active:bg-amber-600 rounded-lg transition-colors shadow-sm inline-flex items-center gap-2 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
                 >
                   <span>Book {activeService.title}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -133,7 +133,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 
                 <a
                   href={`tel:${BUSINESS_INFO.phoneRaw}`}
-                  className="px-5 py-3 text-sm font-semibold text-stone-700 hover:text-stone-950 bg-white border border-stone-300 hover:border-stone-400 rounded-lg transition-colors inline-flex items-center gap-2"
+                  className="w-full sm:w-auto justify-center px-5 py-3 min-h-[48px] text-sm font-semibold text-stone-700 hover:text-stone-950 bg-white border border-stone-300 hover:border-stone-400 rounded-lg transition-colors inline-flex items-center gap-2"
                 >
                   <Phone className="w-4 h-4 text-amber-600" />
                   <span>Call {BUSINESS_INFO.phone}</span>
@@ -146,10 +146,16 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
             <div className="lg:col-span-5 space-y-4">
               <div className="rounded-xl overflow-hidden border border-stone-200 shadow-md bg-stone-900 relative">
                 <img
-                  src={activeService.image}
+                  src={activeService.image.src}
+                  srcSet={activeService.image.srcSet}
+                  sizes={activeService.image.sizes}
+                  width={activeService.image.width}
+                  height={activeService.image.height}
                   alt={activeService.title}
                   referrerPolicy="no-referrer"
-                  className="w-full h-72 sm:h-80 object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-64 sm:h-80 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-3 left-4 right-4 text-white text-xs">

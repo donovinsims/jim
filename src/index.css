@@ -6,16 +6,49 @@
   --font-mono: 'JetBrains Mono', monospace;
 }
 
+:root {
+  /* Height of the fixed mobile action bar, used to keep content clear of it. */
+  --mobile-bar-height: 4.25rem;
+}
+
 html {
   scroll-behavior: smooth;
+  /* Stop iOS from inflating text in landscape. */
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   font-family: var(--font-sans);
+  -webkit-tap-highlight-color: rgb(251 191 36 / 0.25);
 }
 
 h1, h2, h3, h4, .font-display {
   font-family: var(--font-display);
+}
+
+/* Horizontal scrollers (service tabs) without a visible scrollbar. */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Print Styles for the Inspection Lead Magnet / Checklist */

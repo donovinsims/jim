@@ -1,6 +1,7 @@
 import React from 'react';
 import { Award, ShieldCheck, Hammer, CheckCircle2, Phone, Mail, MapPin, Calendar } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/content.ts';
+import { ROOF_IMAGE } from '../data/images.ts';
 
 interface AboutSectionProps {
   onOpenBooking: () => void;
@@ -31,10 +32,16 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
           <div className="lg:col-span-5 space-y-4">
             <div className="rounded-2xl overflow-hidden border border-stone-300 shadow-md bg-stone-900 relative">
               <img
-                src="/src/assets/images/jim_inspection_roof_1794442342609.jpg"
+                src={ROOF_IMAGE.src}
+                srcSet={ROOF_IMAGE.srcSet}
+                sizes={ROOF_IMAGE.sizes}
+                width={ROOF_IMAGE.width}
+                height={ROOF_IMAGE.height}
                 alt="Jim Belanger conducting residential roof inspection in Janesville Wisconsin"
                 referrerPolicy="no-referrer"
-                className="w-full h-80 sm:h-96 object-cover"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-72 sm:h-96 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-4 left-4 right-4 text-white">

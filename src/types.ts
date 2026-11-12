@@ -19,6 +19,14 @@ export type ServiceId =
   | 'new-construction' 
   | 'annual-maintenance';
 
+export interface ResponsiveImage {
+  src: string;
+  srcSet: string;
+  sizes: string;
+  width: number;
+  height: number;
+}
+
 export interface ServiceDetail {
   id: ServiceId;
   title: string;
@@ -29,7 +37,7 @@ export interface ServiceDetail {
   whatsInspected: string[];
   builderPerspective: string;
   typicalDuration: string;
-  image: string;
+  image: ResponsiveImage;
 }
 
 export interface ReviewTheme {

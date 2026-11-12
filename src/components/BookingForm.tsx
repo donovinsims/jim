@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Phone, Mail, MapPin, Calendar, Clock, CheckCircle2, AlertCircle, ArrowRight, X } from 'lucide-react';
 import { validateContactForm, ContactFormData } from '../utils/inspection-logic.ts';
 import { BUSINESS_INFO, SERVICES } from '../data/content.ts';
@@ -28,6 +28,21 @@ export const BookingForm: React.FC<BookingFormProps> = ({
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
+
+  // Lock background scrolling and close on Escape while the sheet is open.
+  useEffect(() => {
+    if (!isOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onClose();
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -60,15 +75,15 @@ export const BookingForm: React.FC<BookingFormProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 overflow-y-auto bg-stone-950/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6"
+      className="fixed inset-0 z-50 overflow-y-auto bg-stone-950/80 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-6"
       role="dialog"
       aria-modal="true"
       aria-labelledby="booking-form-title"
     >
-      <div className="bg-stone-900 border border-stone-800 rounded-2xl w-full max-w-2xl max-h-[92vh] flex flex-col shadow-2xl text-stone-100 overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+      <div className="bg-stone-900 border border-stone-800 rounded-t-2xl sm:rounded-2xl w-full max-w-2xl max-h-[92dvh] sm:max-h-[92vh] flex flex-col shadow-2xl text-stone-100 overflow-hidden animate-in fade-in zoom-in-95 duration-150">
         
         {/* Modal Top Bar */}
-        <div className="px-6 py-4 bg-stone-950 border-b border-stone-800 flex items-center justify-between gap-4">
+        <div className="px-4 sm:px-6 py-4 bg-stone-950 border-b border-stone-800 flex items-center justify-between gap-3">
           <div>
             <h2 id="booking-form-title" className="text-base sm:text-lg font-bold font-display text-white">
               Schedule with Jim Belanger
@@ -79,7 +94,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
           </div>
           <button
             onClick={onClose}
-            className="p-2 text-stone-400 hover:text-white rounded-lg hover:bg-stone-800 transition-colors cursor-pointer"
+            className="p-3 -mr-1 text-stone-400 hover:text-white rounded-lg hover:bg-stone-800 active:bg-stone-800 transition-colors cursor-pointer"
             aria-label="Close booking form"
           >
             <X className="w-5 h-5" />
@@ -87,7 +102,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
         </div>
 
         {/* Form Body */}
-        <div className="p-6 sm:p-8 overflow-y-auto">
+        <div className="p-5 sm:p-8 pb-[calc(1.25rem+env(safe-area-inset-bottom))] sm:pb-8 overflow-y-auto overscroll-contain">
           {submitted ? (
             <div className="text-center py-6 space-y-4">
               <div className="w-14 h-14 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center mx-auto">
@@ -151,7 +166,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                     placeholder="e.g. Michael Miller"
                     className={`w-full px-3.5 py-2.5 rounded-lg bg-stone-950 border ${
                       errors.name ? 'border-rose-500' : 'border-stone-800'
-                    } text-white placeholder:text-stone-500 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500`}
+                    } text-white placeholder:text-stone-500 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500`}
                   />
                   {errors.name && <p className="text-xs text-rose-400 mt-1">{errors.name}</p>}
                 </div>
@@ -168,7 +183,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                     placeholder="(608) 555-0123"
                     className={`w-full px-3.5 py-2.5 rounded-lg bg-stone-950 border ${
                       errors.phone ? 'border-rose-500' : 'border-stone-800'
-                    } text-white placeholder:text-stone-500 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500`}
+                    } text-white placeholder:text-stone-500 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500`}
                   />
                   {errors.phone && <p className="text-xs text-rose-400 mt-1">{errors.phone}</p>}
                 </div>
@@ -188,7 +203,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                     placeholder="you@example.com"
                     className={`w-full px-3.5 py-2.5 rounded-lg bg-stone-950 border ${
                       errors.email ? 'border-rose-500' : 'border-stone-800'
-                    } text-white placeholder:text-stone-500 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500`}
+                    } text-white placeholder:text-stone-500 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500`}
                   />
                   {errors.email && <p className="text-xs text-rose-400 mt-1">{errors.email}</p>}
                 </div>
@@ -205,7 +220,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                     placeholder="e.g. 123 Main St, Janesville, WI"
                     className={`w-full px-3.5 py-2.5 rounded-lg bg-stone-950 border ${
                       errors.address ? 'border-rose-500' : 'border-stone-800'
-                    } text-white placeholder:text-stone-500 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500`}
+                    } text-white placeholder:text-stone-500 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500`}
                   />
                   {errors.address && <p className="text-xs text-rose-400 mt-1">{errors.address}</p>}
                 </div>
@@ -220,7 +235,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                   <select
                     value={formData.serviceType}
                     onChange={e => setFormData({ ...formData, serviceType: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-stone-950 border border-stone-800 text-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer"
+                    className="w-full px-3.5 py-2.5 rounded-lg bg-stone-950 border border-stone-800 text-white text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer"
                   >
                     <option value="pre-purchase">Pre-Purchase Home Inspection</option>
                     <option value="radon-testing">Continuous Radon Testing (48-hr)</option>
@@ -239,7 +254,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                     type="date"
                     value={formData.preferredDate}
                     onChange={e => setFormData({ ...formData, preferredDate: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-lg bg-stone-950 border border-stone-800 text-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+                    className="w-full px-3.5 py-2.5 rounded-lg bg-stone-950 border border-stone-800 text-white text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
                   />
                 </div>
               </div>
@@ -254,7 +269,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
                   value={formData.notes}
                   onChange={e => setFormData({ ...formData, notes: e.target.value })}
                   placeholder="e.g. 2,100 sq ft two-story built in 1995, contingency ends Friday."
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-stone-950 border border-stone-800 text-white placeholder:text-stone-500 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  className="w-full px-3.5 py-2.5 rounded-lg bg-stone-950 border border-stone-800 text-white placeholder:text-stone-500 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
                 />
               </div>
 

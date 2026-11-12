@@ -24,7 +24,7 @@ export const ReviewsSection: React.FC = () => {
         <div className="bg-white rounded-2xl p-6 sm:p-8 border border-stone-200 shadow-sm mb-12">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-3 sm:gap-5 min-w-0">
               <div className="w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-600 font-bold text-3xl font-mono tabular-nums shrink-0">
                 5.0
               </div>
@@ -48,7 +48,7 @@ export const ReviewsSection: React.FC = () => {
                 href={BUSINESS_INFO.googleMapsReviewUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2.5 text-xs sm:text-sm font-semibold text-stone-900 bg-stone-100 hover:bg-stone-200 rounded-lg border border-stone-300 transition-colors inline-flex items-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto justify-center px-5 py-3 min-h-[44px] text-xs sm:text-sm font-semibold text-stone-900 bg-stone-100 hover:bg-stone-200 rounded-lg border border-stone-300 transition-colors inline-flex items-center gap-2 cursor-pointer"
               >
                 <span>Read Verified Reviews on Google</span>
                 <ExternalLink className="w-4 h-4 text-stone-600" />

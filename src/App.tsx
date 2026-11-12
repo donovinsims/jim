@@ -45,17 +45,17 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-stone-50 text-stone-900 flex flex-col font-sans selection:bg-amber-200 selection:text-stone-950 pb-16 lg:pb-0">
+    <div className="min-h-screen bg-stone-50 text-stone-900 flex flex-col font-sans selection:bg-amber-200 selection:text-stone-950 pb-[calc(4.25rem+env(safe-area-inset-bottom))] lg:pb-0">
       
       {/* Top Banner: Local & Direct Phone Notice */}
-      <div className="bg-stone-950 text-stone-400 text-xs py-2 px-4 border-b border-stone-800 text-center flex items-center justify-center gap-3">
+      <div className="bg-stone-950 text-stone-400 text-xs py-2 px-3 sm:px-4 border-b border-stone-800 text-center flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
         <span className="flex items-center gap-1.5 text-stone-300">
           <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
           <span>Rock &amp; Dane County Home Inspections</span>
         </span>
         <span aria-hidden="true" className="text-stone-700">·</span>
-        <span className="hidden sm:inline">Inspected Personally by Jim Belanger · WI Lic #2200-106</span>
-        <span aria-hidden="true" className="text-stone-700 hidden sm:inline">·</span>
+        <span className="hidden md:inline">Inspected Personally by Jim Belanger · WI Lic #2200-106</span>
+        <span aria-hidden="true" className="text-stone-700 hidden md:inline">·</span>
         <a
           href={`tel:${BUSINESS_INFO.phoneRaw}`}
           className="text-amber-400 hover:text-amber-300 font-bold tabular-nums"

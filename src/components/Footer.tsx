@@ -72,27 +72,27 @@ export const Footer: React.FC<FooterProps> = ({
             </p>
             <ul className="space-y-2 text-xs text-stone-400">
               <li>
-                <button onClick={() => handleNav('home')} className="hover:text-white transition-colors cursor-pointer">
+                <button onClick={() => handleNav('home')} className="inline-flex min-h-[40px] items-center py-1 hover:text-white transition-colors cursor-pointer">
                   Home
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('about')} className="hover:text-white transition-colors cursor-pointer">
+                <button onClick={() => handleNav('about')} className="inline-flex min-h-[40px] items-center py-1 hover:text-white transition-colors cursor-pointer">
                   About Jim Belanger
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('services')} className="hover:text-white transition-colors cursor-pointer">
+                <button onClick={() => handleNav('services')} className="inline-flex min-h-[40px] items-center py-1 hover:text-white transition-colors cursor-pointer">
                   All Services
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('why-jim')} className="hover:text-white transition-colors cursor-pointer">
+                <button onClick={() => handleNav('why-jim')} className="inline-flex min-h-[40px] items-center py-1 hover:text-white transition-colors cursor-pointer">
                   The Builder Difference
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('reviews')} className="hover:text-white transition-colors cursor-pointer">
+                <button onClick={() => handleNav('reviews')} className="inline-flex min-h-[40px] items-center py-1 hover:text-white transition-colors cursor-pointer">
                   5.0★ Google Reviews
                 </button>
               </li>
@@ -106,27 +106,27 @@ export const Footer: React.FC<FooterProps> = ({
             </p>
             <ul className="space-y-2 text-xs text-stone-400">
               <li>
-                <button onClick={() => handleNav('services')} className="hover:text-white transition-colors cursor-pointer">
+                <button onClick={() => handleNav('services')} className="inline-flex min-h-[40px] items-center py-1 hover:text-white transition-colors cursor-pointer">
                   Pre-Purchase Inspection
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('services')} className="hover:text-white transition-colors cursor-pointer">
+                <button onClick={() => handleNav('services')} className="inline-flex min-h-[40px] items-center py-1 hover:text-white transition-colors cursor-pointer">
                   Continuous Radon Testing
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('services')} className="hover:text-white transition-colors cursor-pointer">
+                <button onClick={() => handleNav('services')} className="inline-flex min-h-[40px] items-center py-1 hover:text-white transition-colors cursor-pointer">
                   Pre-Listing Inspection
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('services')} className="hover:text-white transition-colors cursor-pointer">
+                <button onClick={() => handleNav('services')} className="inline-flex min-h-[40px] items-center py-1 hover:text-white transition-colors cursor-pointer">
                   New Construction Walkthrough
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('service-areas')} className="hover:text-white transition-colors cursor-pointer">
+                <button onClick={() => handleNav('service-areas')} className="inline-flex min-h-[40px] items-center py-1 hover:text-white transition-colors cursor-pointer">
                   Rock &amp; Dane County Areas
                 </button>
               </li>
@@ -140,31 +140,31 @@ export const Footer: React.FC<FooterProps> = ({
             </p>
             <ul className="space-y-2 text-xs text-stone-400">
               <li>
-                <button onClick={() => handleNav('for-realtors')} className="hover:text-white transition-colors cursor-pointer">
+                <button onClick={() => handleNav('for-realtors')} className="inline-flex min-h-[40px] items-center py-1 hover:text-white transition-colors cursor-pointer">
                   For Real Estate Agents
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('faq')} className="hover:text-white transition-colors cursor-pointer">
+                <button onClick={() => handleNav('faq')} className="inline-flex min-h-[40px] items-center py-1 hover:text-white transition-colors cursor-pointer">
                   Inspection FAQs
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNav('checklist')} className="hover:text-white transition-colors cursor-pointer">
+                <button onClick={() => handleNav('checklist')} className="inline-flex min-h-[40px] items-center py-1 hover:text-white transition-colors cursor-pointer">
                   40-Point Buyer Checklist
                 </button>
               </li>
               <li>
                 <button
                   onClick={onOpenAudit}
-                  className="text-amber-400 hover:text-amber-300 font-medium inline-flex items-center gap-1 cursor-pointer"
+                  className="text-amber-400 hover:text-amber-300 font-medium inline-flex items-center gap-1 min-h-[40px] py-1 cursor-pointer"
                 >
                   <FileText className="w-3.5 h-3.5" />
                   <span>Site Audit &amp; CRO Blueprint</span>
                 </button>
               </li>
               <li>
-                <button onClick={onOpenBooking} className="hover:text-white font-medium transition-colors cursor-pointer">
+                <button onClick={onOpenBooking} className="inline-flex min-h-[40px] items-center py-1 hover:text-white font-medium transition-colors cursor-pointer">
                   Book an Inspection →
                 </button>
               </li>
@@ -174,7 +174,7 @@ export const Footer: React.FC<FooterProps> = ({
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
+        <div className="pt-8 pb-[env(safe-area-inset-bottom)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
           <div>
             © {new Date().getFullYear()} Wisconsin Home Inspection Associates, LLC. All rights reserved.
           </div>

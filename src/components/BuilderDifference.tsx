@@ -31,7 +31,7 @@ export const BuilderDifference: React.FC<BuilderDifferenceProps> = ({ onOpenBook
           {/* Card 1: Standard Checklist Inspector */}
           <div className="bg-white rounded-xl p-6 sm:p-8 border border-stone-200 shadow-sm flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between pb-4 border-b border-stone-100 mb-6">
+              <div className="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-stone-100 mb-6">
                 <span className="text-sm font-semibold text-stone-500 uppercase tracking-wider">
                   Typical Franchise Inspector
                 </span>
@@ -74,7 +74,7 @@ export const BuilderDifference: React.FC<BuilderDifferenceProps> = ({ onOpenBook
           {/* Card 2: Jim Belanger - Master Builder & Inspector */}
           <div className="bg-stone-900 text-stone-100 rounded-xl p-6 sm:p-8 border border-amber-500/40 shadow-lg flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between pb-4 border-b border-stone-800 mb-6">
+              <div className="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-stone-800 mb-6">
                 <span className="text-sm font-semibold text-amber-400 uppercase tracking-wider flex items-center gap-2">
                   <HardHat className="w-4 h-4 text-amber-400" />
                   <span>Jim Belanger (WI Lic #2200-106)</span>
@@ -116,7 +116,7 @@ export const BuilderDifference: React.FC<BuilderDifferenceProps> = ({ onOpenBook
               </span>
               <button
                 onClick={onOpenBooking}
-                className="text-xs font-semibold text-amber-400 hover:text-amber-300 underline underline-offset-4 cursor-pointer"
+                className="text-xs font-semibold text-amber-400 hover:text-amber-300 underline underline-offset-4 cursor-pointer inline-flex min-h-[40px] items-center py-1"
               >
                 Schedule with Jim →
               </button>

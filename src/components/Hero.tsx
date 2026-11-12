@@ -1,6 +1,7 @@
 import React from 'react';
 import { Phone, ArrowRight, CheckCircle2, ShieldCheck, MapPin } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/content.ts';
+import { HERO_IMAGE } from '../data/images.ts';
 
 interface HeroProps {
   onOpenBooking: () => void;
@@ -14,7 +15,7 @@ export const Hero: React.FC<HeroProps> = ({
   onOpenAudit
 }) => {
   return (
-    <section className="relative bg-stone-950 text-stone-100 overflow-hidden py-14 sm:py-20 lg:py-24 border-b border-stone-800">
+    <section className="relative bg-stone-950 text-stone-100 overflow-hidden py-12 sm:py-20 lg:py-24 border-b border-stone-800">
       {/* Background radial highlight */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -28,7 +29,7 @@ export const Hero: React.FC<HeroProps> = ({
             <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-medium text-amber-400">
               <span className="flex items-center gap-1.5">
                 <MapPin className="w-4 h-4 text-amber-400" />
-                <span>Janesville & Rock County, WI</span>
+                <span>Janesville &amp; Rock County, WI</span>
               </span>
               <span aria-hidden="true" className="text-stone-600">·</span>
               <span>Inspecting Since 1992</span>
@@ -37,7 +38,7 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
 
             {/* Marquee Headline */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white font-display leading-[1.15]" style={{ textWrap: 'balance' }}>
+            <h1 className="text-[1.75rem] sm:text-4xl lg:text-5xl font-bold tracking-tight text-white font-display leading-[1.15]" style={{ textWrap: 'balance' }}>
               Inspect your home with the eye of someone who has actually built them.
             </h1>
 
@@ -68,10 +69,10 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
 
             {/* Action Buttons */}
-            <div className="pt-3 flex flex-wrap items-center gap-4">
+            <div className="pt-3 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
               <a
                 href={`tel:${BUSINESS_INFO.phoneRaw}`}
-                className="px-6 py-3.5 text-base font-semibold text-stone-950 bg-amber-500 hover:bg-amber-400 active:bg-amber-600 rounded-lg transition-colors shadow-md inline-flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 cursor-pointer"
+                className="w-full sm:w-auto justify-center px-6 py-3.5 min-h-[52px] text-base font-semibold text-stone-950 bg-amber-500 hover:bg-amber-400 active:bg-amber-600 rounded-lg transition-colors shadow-md inline-flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 cursor-pointer"
               >
                 <Phone className="w-5 h-5" />
                 <span>Call {BUSINESS_INFO.phone}</span>
@@ -79,7 +80,7 @@ export const Hero: React.FC<HeroProps> = ({
 
               <button
                 onClick={onOpenBooking}
-                className="px-6 py-3.5 text-base font-semibold text-white bg-stone-800 hover:bg-stone-700 active:bg-stone-800 border border-stone-700 rounded-lg transition-colors inline-flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-400 cursor-pointer"
+                className="w-full sm:w-auto justify-center px-6 py-3.5 min-h-[52px] text-base font-semibold text-white bg-stone-800 hover:bg-stone-700 active:bg-stone-800 border border-stone-700 rounded-lg transition-colors inline-flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-400 cursor-pointer"
               >
                 <span>Book an Inspection</span>
                 <ArrowRight className="w-4 h-4" />
@@ -87,9 +88,9 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
 
             {/* Subtle trust notice */}
-            <div className="pt-2 text-xs text-stone-400 flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-amber-400 shrink-0" />
-              <span>
+            <div className="pt-2 text-xs text-stone-400 flex items-start gap-2">
+              <ShieldCheck className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+              <span className="leading-relaxed">
                 Need quick answers? Calls and texts both reach Jim directly at <strong>(608) 575-5680</strong>.
               </span>
             </div>
@@ -100,30 +101,35 @@ export const Hero: React.FC<HeroProps> = ({
           <div className="lg:col-span-5">
             <div className="relative rounded-2xl overflow-hidden border border-stone-800 shadow-2xl bg-stone-900 group">
               <img
-                src="/src/assets/images/hero_home_inspection_1794442342110.jpg"
+                src={HERO_IMAGE.src}
+                srcSet={HERO_IMAGE.srcSet}
+                sizes={HERO_IMAGE.sizes}
+                width={HERO_IMAGE.width}
+                height={HERO_IMAGE.height}
                 alt="Professional Wisconsin home inspector examining craftsman house foundation and exterior structure in Janesville"
-                referrerPolicy="no-referrer"
-                className="w-full h-80 sm:h-96 lg:h-[430px] object-cover transition-transform duration-500 group-hover:scale-102"
+                fetchPriority="high"
+                decoding="async"
+                className="w-full h-72 sm:h-96 lg:h-[430px] object-cover transition-transform duration-500 group-hover:scale-102"
               />
               
               {/* Measured contrast scrim */}
               <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/30 to-transparent pointer-events-none" />
 
               {/* In-photo trust caption */}
-              <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-stone-900/90 backdrop-blur-md border border-stone-800 text-stone-100">
+              <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 p-3 sm:p-4 rounded-xl bg-stone-900/90 backdrop-blur-md border border-stone-800 text-stone-100">
                 <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <p className="text-xs uppercase tracking-wider text-amber-400 font-semibold mb-0.5">
+                  <div className="min-w-0">
+                    <p className="text-[11px] sm:text-xs uppercase tracking-wider text-amber-400 font-semibold mb-0.5">
                       The &ldquo;Get Jim&rdquo; Advantage
                     </p>
                     <p className="text-sm font-medium text-white">
-                      James L. Belanger Jr. · 30+ Years Inspecting & Building
+                      James L. Belanger Jr. · 30+ Years Inspecting &amp; Building
                     </p>
-                    <p className="text-xs text-stone-300 mt-1">
+                    <p className="hidden sm:block text-xs text-stone-300 mt-1">
                       &ldquo;I inspect every home with the exact same rigor I used when framing and building houses for Wisconsin families.&rdquo;
                     </p>
                   </div>
-                  <div className="text-right shrink-0">
+                  <div className="hidden sm:block text-right shrink-0">
                     <span className="inline-block px-2 py-1 rounded bg-stone-800 border border-stone-700 text-amber-400 text-xs font-mono font-bold">
                       WI 2200-106
                     </span>

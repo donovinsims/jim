@@ -12,15 +12,15 @@ export const AuditBonusModal: React.FC<AuditBonusModalProps> = ({ isOpen, onClos
 
   return (
     <div
-      className="fixed inset-0 z-50 overflow-y-auto bg-stone-950/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6"
+      className="fixed inset-0 z-50 overflow-y-auto bg-stone-950/80 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-6"
       role="dialog"
       aria-modal="true"
       aria-labelledby="audit-modal-title"
     >
-      <div className="bg-stone-900 border border-stone-800 rounded-2xl w-full max-w-4xl max-h-[92vh] flex flex-col shadow-2xl text-stone-100 overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+      <div className="bg-stone-900 border border-stone-800 rounded-t-2xl sm:rounded-2xl w-full max-w-4xl max-h-[92dvh] sm:max-h-[92vh] flex flex-col shadow-2xl text-stone-100 overflow-hidden animate-in fade-in zoom-in-95 duration-150">
         
         {/* Modal Top Bar */}
-        <div className="px-6 py-4 bg-stone-950 border-b border-stone-800 flex items-center justify-between gap-4">
+        <div className="px-4 sm:px-6 py-4 bg-stone-950 border-b border-stone-800 flex items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full bg-amber-500" />
             <h2 id="audit-modal-title" className="text-base sm:text-lg font-bold font-display text-white">
@@ -30,14 +30,14 @@ export const AuditBonusModal: React.FC<AuditBonusModalProps> = ({ isOpen, onClos
           <div className="flex items-center gap-2">
             <button
               onClick={() => window.print()}
-              className="p-2 text-stone-400 hover:text-white rounded-lg hover:bg-stone-800 transition-colors"
+              className="p-3 -mr-1 text-stone-400 hover:text-white rounded-lg hover:bg-stone-800 active:bg-stone-800 transition-colors"
               title="Print blueprint"
             >
               <Printer className="w-5 h-5" />
             </button>
             <button
               onClick={onClose}
-              className="p-2 text-stone-400 hover:text-white rounded-lg hover:bg-stone-800 transition-colors cursor-pointer"
+              className="p-3 -mr-1 text-stone-400 hover:text-white rounded-lg hover:bg-stone-800 active:bg-stone-800 transition-colors cursor-pointer"
               aria-label="Close modal"
             >
               <X className="w-5 h-5" />
@@ -46,7 +46,7 @@ export const AuditBonusModal: React.FC<AuditBonusModalProps> = ({ isOpen, onClos
         </div>
 
         {/* Scrollable Modal Body */}
-        <div className="p-6 sm:p-8 overflow-y-auto space-y-10 text-sm">
+        <div className="p-5 sm:p-8 pb-[calc(1.25rem+env(safe-area-inset-bottom))] sm:pb-8 overflow-y-auto overscroll-contain space-y-10 text-sm">
           
           {/* Executive Summary Card */}
           <div className="p-5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-stone-200">

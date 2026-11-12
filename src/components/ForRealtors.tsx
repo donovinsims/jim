@@ -91,17 +91,17 @@ export const ForRealtors: React.FC<ForRealtorsProps> = ({ onOpenBooking }) => {
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 shrink-0 w-full lg:w-auto">
             <a
               href={`tel:${BUSINESS_INFO.phoneRaw}`}
-              className="px-6 py-3.5 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-sm rounded-lg transition-colors inline-flex items-center gap-2"
+              className="w-full sm:w-auto justify-center px-6 py-3.5 min-h-[48px] bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-sm rounded-lg transition-colors inline-flex items-center gap-2"
             >
               <Phone className="w-4 h-4" />
               <span>Call Jim Directly</span>
             </a>
             <a
               href={`mailto:${BUSINESS_INFO.email}?subject=Realtor%20Inspection%20Inquiry`}
-              className="px-6 py-3.5 bg-stone-800 hover:bg-stone-700 text-stone-200 font-semibold text-sm rounded-lg border border-stone-700 transition-colors inline-flex items-center gap-2"
+              className="w-full sm:w-auto justify-center px-6 py-3.5 min-h-[48px] bg-stone-800 hover:bg-stone-700 text-stone-200 font-semibold text-sm rounded-lg border border-stone-700 transition-colors inline-flex items-center gap-2"
             >
               <Mail className="w-4 h-4 text-stone-400" />
               <span>Email: {BUSINESS_INFO.email}</span>

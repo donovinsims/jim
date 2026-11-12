@@ -59,7 +59,7 @@ export const ServiceAreasSection: React.FC<ServiceAreasProps> = ({ onOpenBooking
                   placeholder="Enter city or zip code..."
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg border border-stone-300 bg-white text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm"
+                  className="w-full px-4 py-3 rounded-lg border border-stone-300 bg-white text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-amber-500 text-base sm:text-sm"
                 />
               </div>
               <button
@@ -139,13 +139,13 @@ export const ServiceAreasSection: React.FC<ServiceAreasProps> = ({ onOpenBooking
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-stone-100 flex items-center justify-between text-xs">
+              <div className="pt-3 border-t border-stone-100 flex flex-wrap items-center justify-between gap-2 text-xs">
                 <span className="text-stone-400 font-mono">
                   Zip codes: {area.zipCodes.slice(0, 3).join(', ')}{area.zipCodes.length > 3 ? '...' : ''}
                 </span>
                 <button
                   onClick={onOpenBooking}
-                  className="font-semibold text-amber-700 hover:text-amber-800 cursor-pointer"
+                  className="font-semibold text-amber-700 hover:text-amber-800 cursor-pointer inline-flex min-h-[40px] items-center py-1 px-1 -mx-1"
                 >
                   Book Area →
                 </button>

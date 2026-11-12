@@ -78,14 +78,14 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenBooking }) => {
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
               href={`tel:${BUSINESS_INFO.phoneRaw}`}
-              className="px-5 py-2.5 rounded-lg bg-stone-900 text-white font-semibold text-xs sm:text-sm hover:bg-stone-800 transition-colors inline-flex items-center gap-2"
+              className="px-5 py-3 min-h-[44px] rounded-lg bg-stone-900 text-white font-semibold text-xs sm:text-sm hover:bg-stone-800 transition-colors inline-flex items-center gap-2"
             >
               <Phone className="w-4 h-4 text-amber-400" />
               <span>Call Jim: {BUSINESS_INFO.phone}</span>
             </a>
             <button
               onClick={onOpenBooking}
-              className="px-5 py-2.5 rounded-lg bg-amber-500 text-stone-950 font-semibold text-xs sm:text-sm hover:bg-amber-400 transition-colors inline-flex items-center gap-1.5 cursor-pointer"
+              className="px-5 py-3 min-h-[44px] rounded-lg bg-amber-500 text-stone-950 font-semibold text-xs sm:text-sm hover:bg-amber-400 transition-colors inline-flex items-center gap-1.5 cursor-pointer"
             >
               <span>Schedule Inspection</span>
               <ArrowRight className="w-4 h-4" />

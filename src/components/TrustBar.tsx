@@ -10,7 +10,7 @@ export const TrustBar: React.FC<TrustBarProps> = ({ onOpenReviews }) => {
   return (
     <section className="bg-stone-900 text-stone-100 border-y border-stone-800" aria-label="Inspector Credibility Stack">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-center">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-8 items-start">
           
           {/* Item 1: Perfect 5.0 Google Rating */}
           <button
@@ -18,7 +18,7 @@ export const TrustBar: React.FC<TrustBarProps> = ({ onOpenReviews }) => {
             className="text-left group cursor-pointer focus-visible:outline-none"
             aria-label="View 5.0 Star Google Reviews"
           >
-            <div className="flex items-center gap-1.5 text-amber-400 mb-1">
+            <div className="flex flex-wrap items-center gap-1 sm:gap-1.5 text-amber-400 mb-1">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
               ))}

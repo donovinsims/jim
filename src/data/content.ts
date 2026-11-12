@@ -1,4 +1,5 @@
 import { ServiceDetail, FaqItem, AuditItem } from '../types.ts';
+import { HERO_IMAGE, BASEMENT_IMAGE, ROOF_IMAGE, FAMILY_IMAGE } from './images.ts';
 
 export const BUSINESS_INFO = {
   name: 'Wisconsin Home Inspection Associates, LLC',
@@ -47,7 +48,7 @@ export const SERVICES: ServiceDetail[] = [
     ],
     builderPerspective: 'Having built custom homes since 1993 through Exceptional Homes by Tuscany, Jim knows the difference between normal thermal expansion and active foundation settlement. He sees behind the drywall because he has framed those exact walls.',
     typicalDuration: 'Typically 2.5 to 3.5+ hours on-site depending on square footage and age.',
-    image: '/src/assets/images/hero_home_inspection_1794442342110.jpg'
+    image: HERO_IMAGE
   },
   {
     id: 'radon-testing',
@@ -64,7 +65,7 @@ export const SERVICES: ServiceDetail[] = [
     ],
     builderPerspective: 'Jim understands how basement slabs, drain tile sumps, and foundation penetrations create negative pressure vacuums that draw soil gases indoors. If levels are elevated, he can explain typical active sub-slab depressurization mitigation systems plainly.',
     typicalDuration: '48-hour continuous testing cycle coordinated within your contract contingency window.',
-    image: '/src/assets/images/inspection_basement_mechanicals_1794442343458.jpg'
+    image: BASEMENT_IMAGE
   },
   {
     id: 'pre-listing',
@@ -82,7 +83,7 @@ export const SERVICES: ServiceDetail[] = [
     ],
     builderPerspective: 'A seller armed with Jim’s inspection knows what is a $50 DIY fix vs a major consideration, preventing buyer over-demands at the 11th hour.',
     typicalDuration: 'Typically 2.5 to 3 hours on-site.',
-    image: '/src/assets/images/jim_inspection_roof_1794442342609.jpg'
+    image: ROOF_IMAGE
   },
   {
     id: 'new-construction',
@@ -99,7 +100,7 @@ export const SERVICES: ServiceDetail[] = [
     ],
     builderPerspective: 'This is Jim’s native domain. He has managed subcontractors for over three decades and catches incomplete flashing, missing joist hangers, and insulation voids that cause costly drafts later.',
     typicalDuration: 'Approximately 2.5 to 3.5 hours depending on construction phase.',
-    image: '/src/assets/images/wisconsin_family_home_1794442342838.jpg'
+    image: FAMILY_IMAGE
   },
   {
     id: 'annual-maintenance',
@@ -116,7 +117,7 @@ export const SERVICES: ServiceDetail[] = [
     ],
     builderPerspective: 'Preventive maintenance is always 10x cheaper than water damage remediation. Jim helps homeowners prioritize what needs attention now vs what can wait.',
     typicalDuration: 'Typically 2 hours on-site.',
-    image: '/src/assets/images/inspection_basement_mechanicals_1794442343458.jpg'
+    image: BASEMENT_IMAGE
   }
 ];
 
